@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Concept Explainer</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            width: 50%;
+            margin: 80px auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 85%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #ffcc00;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffaa00;
+            transform: scale(1.05);
+        }
+
+        #output {
+            margin-top: 25px;
+            padding: 15px;
+            background: white;
+            color: black;
+            border-radius: 10px;
+            min-height: 80px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎭 AI Concept Explainer</h1>
+
+    <input type="text" id="topic" placeholder="Enter Topic (e.g., AI, Blockchain)">
+
+    <select id="style">
+        <option value="Shakespeare">Shakespeare</option>
+        <option value="Pirate">Pirate</option>
+        <option value="Bandit">Bandit</option>
+    </select>
+
+    <button id="explainBtn">Explain</button>
+
+    <div id="output">Your explanation will appear here...</div>
+</div>
+
+<!-- INTERNAL JAVASCRIPT -->
+<script>
+document.getElementById("explainBtn").addEventListener("click", function () {
+
+    const topic = document.getElementById("topic").value;
+    const style = document.getElementById("style").value;
+
+    if (!topic) {
+        alert("Please enter a topic!");
+        return;
+    }
+
+    document.getElementById("output").innerText = "Generating explanation...";
+
+    fetch("/generate", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            topic: topic,
+            style: style
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("output").innerText = data.response;
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("output").innerText = "Server error occurred!";
+    });
+
+});
+</script>
+
+</body>
+</html>
