@@ -14,13 +14,13 @@ The goal of this workshop is to understand how modern GenAI systems work and how
 Technology Purpose 🐍 Python Core programming ⚡ FastAPI Backend API framework 🧠 Groq / OpenAI LLM integration 🔗 REST APIs Model communication 🖥 VS Code Development
 
 📂 Project Structure
-Workshop-genAI/
+<pre>Workshop-genAI/
 │
 ├── app.py              # Main FastAPI app
 ├── requirements.txt    # Dependencies
 ├── README.md           # Project documentation
 └── .env                # API keys
- 
+</pre>
 ⚙️ Installation & Setup
 1️⃣ Clone the Repository Bash Copy code git clone https://github.com/Chethumalli/Workshop-genAI.git cd Workshop-genAI
 
@@ -38,3 +38,4 @@ Contributions are welcome! If you'd like to improve this project: Fork the repo 
 Chethan Malli 📍 AI & ML Enthusiast 🚀 Building AI-powered systems 🔗 GitHub Profile� ⭐ If you found this useful, give it a star!
 
 If you want, I can also: 🔥 Make it more startup-level professional 🎨 Add animated GIF preview section 🧠 Add architecture diagram section 📊 Add badges like visitor counter & GitHub stats 💼 Make it VC-ready (since you're into pitching ideas 😉) Tell me the style you want: Student Workshop Style Professional AI Portfolio Style Startup Product Style
+
