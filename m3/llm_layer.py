@@ -2,9 +2,7 @@ import os
 from dotenv import load_dotenv
 from litellm import completion
 from prompt_layer import SYSTEM_PROMPT
-
 load_dotenv()
-
 MODEL_NAME = os.getenv("MODEL_NAME", "groq/llama-3.1-8b-instant")
 
 def call_llm(prompt):

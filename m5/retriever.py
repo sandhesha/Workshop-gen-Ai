@@ -50,6 +50,6 @@ def retrieve_context(question, documents):
     if not scored_docs:
         return "No relevant context found."
 
-    # Combine top relevant contexts (e.g., top 2)
+    # Combintop relevant contexts (e.g., top 2)
     top_contexts = [doc[1] for doc in scored_docs[:2]]
     return "\n\n---\n\n".join(top_contexts)
